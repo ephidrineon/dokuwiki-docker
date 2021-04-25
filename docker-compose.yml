@@ -1,0 +1,28 @@
+# Docker Compose file to setup the Wiki-Image
+
+# environment variables containing secrets should be written into the '.env' file
+# see the .env-template file for an example setup
+
+version: '3'
+services:
+    nginx-wiki:
+        image: wiki-netztutoren
+        build: ./nginx-docker-setup
+        volumes:
+            # config files for nginx
+            - ./nginx_conf/nginx.conf:/etc/nginx/nginx.conf
+            #wiki-data
+            - ./wiki_data:/var/www/html
+        ports:
+            # to use SSL/Encryption you will need to reverse proxy from a webserver on your host
+            # OR edit the wiki.conf to use SSL and add the SSL port map here
+            - 80:8080
+        networks:
+            - wiki-network
+
+networks:
+  wiki-network:
+   ipam:
+      config:
+      - subnet: 172.16.238.0/24
+        gateway: 172.16.238.1
