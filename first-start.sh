@@ -16,17 +16,17 @@ echo "Unpacking..."
 tar -xzvf dokuwiki-stable.tgz &> /dev/null
 rm -f dokuwiki-stable.tgz
 
-echo "Moving Files..."
-mkdir wiki_data
+echo "Moving files..."
+mkdir wiki-data
 cd dokuwiki*
-mv -u --backup ./* ../wiki_data
+mv -u --backup ./* ../wiki-data
 cd ..
 
-echo "Setting Permissions..."
-chmod 700 -R wiki_data/
-sudo chown nobody.nobody -R wiki_data/
+echo "Setting permissions..."
+chmod 700 -R wiki-data/
+sudo chown nobody.nobody -R wiki-data/
 
-echo "Removing created Files..."
+echo "Removing created files..."
 rm -rf ./dokuwiki*
 
-echo "You can start the services now with 'docker-compose up -d'."
+echo "You can start the service now with 'docker-compose up -d'."
