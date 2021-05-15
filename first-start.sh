@@ -24,7 +24,7 @@ cd ..
 
 echo "Setting permissions..."
 chmod 700 -R wiki-data/
-sudo chown nobody.nobody -R wiki-data/
+sudo chown nobody:nobody -R wiki-data/
 
 echo "Removing created files..."
 rm -rf ./dokuwiki*
