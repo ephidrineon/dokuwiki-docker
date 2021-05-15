@@ -6,7 +6,7 @@ This is an containerized version of [DokuWiki](https://www.dokuwiki.org/dokuwiki
 You will need to install `docker` and `docker-compose`
 
 #### Setup
-- If you start the image for the first time run the bash script `first-start.sh` to download the latest version of DokuWiki and set the appropriate rwx permissions. 
+- Before you start the image for the first time, run the bash script `first-start.sh` to download the latest version of DokuWiki and set the appropriate permissions. 
 
 - To start the service run `docker-compose up -d`
 
