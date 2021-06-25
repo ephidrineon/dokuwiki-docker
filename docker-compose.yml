@@ -6,8 +6,7 @@
 version: '3'
 services:
     nginx-wiki:
-        image: dokuwiki-docker
-        build: ./setup
+        image: peek1e/dokuwiki-docker:latest
         volumes:
             #wiki-data
             - ./wiki-data:/var/www/html
