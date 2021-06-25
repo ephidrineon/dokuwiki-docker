@@ -15,6 +15,8 @@ services:
             - wiki-network
         volumes:
             - wiki-data:/var/www/html
+        restart:
+            unless-stopped
 
 networks:
   wiki-network:
