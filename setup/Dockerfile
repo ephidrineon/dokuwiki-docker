@@ -30,9 +30,9 @@ RUN chown -R nobody.nobody /var/www/html && \
 WORKDIR /var/www/
 RUN wget https://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz && tar -xzf dokuwiki-stable.tgz && rm -f dokuwiki-stable.tgz
 RUN mv ./dokuwiki*/* /var/www/html/
-RUN ls -al /var/www
-RUN ls -al /var/www/html
 RUN chmod 750 -R /var/www/html && chown nobody.nobody -R /var/www/html
+
+VOLUME /var/www/html
 
 # Switch to use a non-root user from here on
 USER nobody

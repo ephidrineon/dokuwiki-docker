@@ -7,9 +7,6 @@ version: '3'
 services:
     nginx-wiki:
         image: peek1e/dokuwiki-docker:latest
-        volumes:
-            #wiki-data
-            - ./wiki-data:/var/www/html
         ports:
             # to use SSL/Encryption you will need to reverse proxy from a webserver on your host
             - 80:8080
