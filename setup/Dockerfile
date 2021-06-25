@@ -1,5 +1,6 @@
 FROM alpine:3.13
-
+LABEL Maintainer="Daniel Lehmann <daniellehmann28@outlook.de>"
+LABEL Description="Dokuwiki containerized"
 # Install packages and remove default server definition
 RUN apk --no-cache add php7 php7-fpm php7-opcache php7-mysqli php7-json php7-openssl php7-curl \
     php7-zlib php7-xml php7-phar php7-intl php7-dom php7-xmlreader php7-ctype php7-session \
@@ -25,12 +26,16 @@ RUN chown -R nobody.nobody /var/www/html && \
   chown -R nobody.nobody /var/lib/nginx && \
   chown -R nobody.nobody /var/log/nginx
 
+# Add application
+WORKDIR /var/www/
+RUN wget https://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz && tar -xzf dokuwiki-stable.tgz && rm -f dokuwiki-stable.tgz
+RUN mv ./dokuwiki*/* /var/www/html/
+RUN ls -al /var/www
+RUN ls -al /var/www/html
+RUN chmod 750 -R /var/www/html && chown nobody.nobody -R /var/www/html
+
 # Switch to use a non-root user from here on
 USER nobody
-
-# Add application
-WORKDIR /var/www/html
-COPY --chown=nobody src/ /var/www/html/
 
 # Expose the port nginx is reachable on
 EXPOSE 8080
