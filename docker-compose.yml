@@ -7,11 +7,14 @@ version: '3'
 services:
     nginx-wiki:
         image: peek1e/dokuwiki-docker:latest
+        build: ./setup
         ports:
             # to use SSL/Encryption you will need to reverse proxy from a webserver on your host
             - 80:8080
         networks:
             - wiki-network
+        volumes:
+            - wiki-data:/var/www/html
 
 networks:
   wiki-network:
@@ -19,3 +22,6 @@ networks:
       config:
       - subnet: 172.16.239.0/24
         gateway: 172.16.239.1
+
+volumes:
+    wiki-data:
