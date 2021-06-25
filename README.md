@@ -6,7 +6,7 @@ This is an containerized version of [DokuWiki](https://www.dokuwiki.org/dokuwiki
 You will need to install `docker` and `docker-compose`
 
 #### Setup
-- To start the service just run `docker-compose up -d`
+- To start the service run `docker-compose pull && docker-compose up -d`
 
 - Visit [http://machineip/install.php](http://localhost/install.php) to setup your instance of DokuWiki
 
