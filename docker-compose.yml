@@ -6,16 +6,13 @@
 version: '3'
 services:
     nginx-wiki:
-        image: wiki-lantutors
-        build: ./nginx-docker-setup
+        image: dokuwiki-docker
+        build: ./setup
         volumes:
             #wiki-data
             - ./wiki-data:/var/www/html
-            #config files
-            - ./conf/nginx-extra.conf:/etc/nginx/conf.d/nginx-extra.conf
         ports:
             # to use SSL/Encryption you will need to reverse proxy from a webserver on your host
-            # OR edit the wiki.conf to use SSL and add the SSL port map here
             - 80:8080
         networks:
             - wiki-network
