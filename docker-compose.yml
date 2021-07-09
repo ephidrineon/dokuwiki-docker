@@ -3,7 +3,7 @@
 # environment variables containing secrets should be written into the '.env' file
 # see the .env-template file for an example setup
 
-version: '3'
+version: '2.3'
 services:
     nginx-wiki:
         image: peek1e/dokuwiki-docker:latest
