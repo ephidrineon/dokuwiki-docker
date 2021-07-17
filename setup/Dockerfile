@@ -1,5 +1,5 @@
 FROM alpine:3.13
-LABEL Maintainer="Daniel Lehmann <daniellehmann28@outlook.de>"
+LABEL Maintainer="Daniel Lehmann <38333220+PeeK1e@users.noreply.github.com>"
 LABEL Description="Dokuwiki containerized"
 # Install packages and remove default server definition
 RUN apk --no-cache add php7 php7-fpm php7-opcache php7-mysqli php7-json php7-openssl php7-curl \
